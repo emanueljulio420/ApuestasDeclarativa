@@ -61,6 +61,30 @@ public class Main {
     public static void apuesta(){
         System.out.println("Apuestas");
         int opcion = 0;
+        do {
+            try{
+                System.out.println("¿A que deporte deseas apostar? \n1. Futbol \n2. Basketball \n3. Voleyball " +
+                        "\n4. Regresar al menu anterior \n(Cualquier opcion distinta a las anteriores sera invalida)");
+                Scanner scanner = new Scanner(System.in);
+                opcion = scanner.nextInt();
+                switch (opcion){
+                    case 1:
+                        Apuesta.ApuestaFot();
+                    case 2:
+                        Apuesta.ApuestaBask();
+                    case 3:
+                        Apuesta.ApuestaBolei();
+                    case 4:
+                        menuInicio();
+                }
+            }
+            catch (InputMismatchException e){
+                System.out.println("NO SE PUEDEN INGRESAR LETRAS");
+                apuesta();
+            }
+        } while (opcion > 0 && opcion < 5);
+
+        /*
         while(opcion != 1 && opcion !=2 && opcion != 3 && opcion != 4 ){
             System.out.println("¿A que deporte deseas apostar? \n1. Futbol \n2. Basketball \n3. Voleyball " +
                     "\n4. Regresar al menu anterior \n(Cualquier opcion distinta a las anteriores sera invalida)");
@@ -87,6 +111,7 @@ public class Main {
                 System.out.println("No seleccionaste una opcion valida");
             }
         }
+         */
     }
     public static void estadisticas(){
         int opcion =0;
