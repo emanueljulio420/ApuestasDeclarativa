@@ -53,4 +53,9 @@ public class Equipos {
         this.derrotas = derrotas;
     }
 
+    @Override
+    public String toString(){
+     return "Equipo: "+ getNombre() + "\nCantidad de victorias: " + getVictorias() + "\nCantidad de derrotas: "+getDerrotas() + "\n";
+    }
+
 }

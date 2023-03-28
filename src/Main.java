@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
 public class Main {
     public static double Plata = 500;
     static ArrayList<Equipos> equiposFut = new ArrayList<Equipos>(4);
@@ -132,20 +134,14 @@ public class Main {
             else if(opcion == 2){
                 System.out.println("Mostrando estadisticas de Basketball");
                 for (Equipos equipo : equiposBas){
-                    System.out.println("Equipo: "+equipo.getNombre());
-                    System.out.println("Cantidad de Victorias: "+equipo.getVictorias());
-                    System.out.println("Cantidad de derrotas: "+equipo.getDerrotas());
+                    System.out.println(equipo);
                     System.out.println("----------------------------------------------------------");
                 }
             }
             else if (opcion == 3) {
                 System.out.println("Mostrando estadisticas de Voleyball");
-                for (Equipos equipo : equiposVol){
-                    System.out.println("Equipo: "+equipo.getNombre());
-                    System.out.println("Cantidad de Victorias: "+equipo.getVictorias());
-                    System.out.println("Cantidad de derrotas: "+equipo.getDerrotas());
-                    System.out.println("----------------------------------------------------------");
-                }
+                equiposVol.stream().collect(Collectors.toList())
+                        .forEach(System.out::println);
             }
             else if (opcion == 4){
                 menuInicio();
