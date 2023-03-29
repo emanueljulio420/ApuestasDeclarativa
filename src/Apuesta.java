@@ -6,7 +6,6 @@ public class Apuesta {
 
 
     public static void ApuestaFot(){
-        Main main= new Main();
         ArrayList<Equipos> equiposFut= Main.equiposFut;
         Random random = new Random();
         int aleatorio = random.nextInt(equiposFut.size());

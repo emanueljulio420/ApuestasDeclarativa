@@ -59,6 +59,33 @@ public class Main {
             }
         }
     }
+        /*do {
+            try{
+                System.out.println("¿Que desea hacer? \n1. Apostar\n2. Ver estadisticas \n3. Salir " +
+                        "\n(Escriba el numero de la opcion que quiere realizar)");
+                Scanner scanner = new Scanner(System.in);
+                opcion = scanner.nextInt();
+                switch (opcion){
+                    case 1:
+                        apuesta();
+                    case 2:
+                        estadisticas();
+                    case 3:
+                        System.out.println("Muchas gracias por ingresar \nQue tengas un lindo dia!");
+                    default: {
+                        System.out.println("Opcion incorrecta");
+                        menuInicio();
+                    }
+                }
+            }
+            catch (InputMismatchException e){
+                System.out.println("NO SE PUEDEN INGRESAR LETRAS");
+                menuInicio();
+            }
+        } while (opcion > 0 && opcion < 5);
+
+         */
+
 
     public static void apuesta(){
         System.out.println("Apuestas");
@@ -86,34 +113,6 @@ public class Main {
             }
         } while (opcion > 0 && opcion < 5);
 
-        /*
-        while(opcion != 1 && opcion !=2 && opcion != 3 && opcion != 4 ){
-            System.out.println("¿A que deporte deseas apostar? \n1. Futbol \n2. Basketball \n3. Voleyball " +
-                    "\n4. Regresar al menu anterior \n(Cualquier opcion distinta a las anteriores sera invalida)");
-            Scanner scanner = new Scanner(System.in);
-            try{
-                opcion = scanner.nextInt();
-            }
-            catch (InputMismatchException e){
-                System.out.println("NO SE PUEDEN INGRESAR LETRAS");
-            }
-            if(opcion == 1){
-                Apuesta.ApuestaFot();
-            }
-            else  if(opcion==2){
-                Apuesta.ApuestaBask();
-            }
-            else  if(opcion==3){
-                Apuesta.ApuestaBolei();
-            }
-            else  if(opcion==4){
-                menuInicio();
-            }
-            else{
-                System.out.println("No seleccionaste una opcion valida");
-            }
-        }
-         */
     }
     public static void estadisticas(){
         int opcion =0;
@@ -124,20 +123,14 @@ public class Main {
             opcion = scanner.nextInt();
             if (opcion == 1){
                 System.out.println("Mostrando estadisticas de Futbol");
-                for (Equipos equipo : equiposFut){
-                    System.out.println("Equipo: "+equipo.getNombre());
-                    System.out.println("Cantidad de Victorias: "+equipo.getVictorias());
-                    System.out.println("Cantidad de derrotas: "+equipo.getDerrotas());
-                    System.out.println("----------------------------------------------------------");
-                }
+                equiposFut.stream().collect(Collectors.toList())
+                        .forEach(System.out::println);
             }
             else if(opcion == 2){
                 System.out.println("Mostrando estadisticas de Basketball");
-                for (Equipos equipo : equiposBas){
-                    System.out.println(equipo);
-                    System.out.println("----------------------------------------------------------");
+                equiposBas.stream().collect(Collectors.toList())
+                        .forEach(System.out::println);
                 }
-            }
             else if (opcion == 3) {
                 System.out.println("Mostrando estadisticas de Voleyball");
                 equiposVol.stream().collect(Collectors.toList())
